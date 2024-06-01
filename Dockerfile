@@ -16,6 +16,7 @@ WORKDIR /var/wwwroot/default
 RUN apt update && \
     apt install -y libpq-dev && \
     docker-php-ext-install pgsql && \ 
+    docker-php-ext-install pdo_pgsql && \
     printf "\n" | pecl install memcache && \
     git clone https://github.com/opensolutions/ViMbAdmin.git . && \
     composer install --prefer-dist --no-dev -o && \
